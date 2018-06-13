@@ -12,6 +12,10 @@ skinColors = {
 };
 
 window.onload = function() {
+    drawAllTheCats()
+}
+
+function drawAllTheCats() {
     let svg = document.getElementById('rootSvg');
     for (let eye of Object.keys(eyeColors)) {
         for (let skin of Object.keys(skinColors)) {
