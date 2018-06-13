@@ -1,0 +1,27 @@
+svg {
+    border: 1px solid black;
+}
+
+.pupil {
+    animation: pupil 3s ease-in-out infinite;
+}
+.pupil-reflection {
+    animation: pupil-reflection 3s ease-in-out infinite;
+}
+
+@keyframes pupil {
+    75%, 50%, 35% {
+        transform: translate(8px, -0px);
+    }
+    55%, 65% {
+        transform: translate(-2px, 0px);
+    }
+}
+@keyframes pupil-reflection {
+    75%, 50%, 35% {
+        transform: translate(11px, -0px);
+    }
+    55%, 65% {
+        transform: translate(-0px, 0px);
+    }
+}
