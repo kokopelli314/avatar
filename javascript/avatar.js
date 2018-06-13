@@ -1,17 +1,18 @@
 eyeColors = {
+    brown: 'hsl(38, 87%, 30%)',
     green: 'hsl(82, 83%, 52%)',
     blue: 'hsl(194, 79%, 54%)',
     grey: 'hsl(210, 8%, 95%)',
     yellow: 'hsl(61, 100%, 70%)'
 };
 
-skinColors = {
+furColors = {
     grey: 'hsl(46, 20%, 66%)',
     black: 'hsl(60, 3%, 10%)',
     orange: 'hsl(38, 77%, 64%)',
 };
 
-//
+
 earTypes = {
     droopy: (svg, attributes) => {
         addPath(svg, 'M60 30 c 5 20, -40 30, -40 70 s -50 -80, 40 -70', attributes);
@@ -26,24 +27,16 @@ earTypes = {
     }
 }
 
-window.onload = function() {
-    drawAllTheCats()
-    //
-    // let svg = document.getElementById('rootSvg');
-    // svg.addEventListener('mouseover', (ev) => {
-    //     console.log(`X: ${ev.clientX}, Y: ${ev.clientY}`)
-    // });
-    // drawDog(eyeColors.blue, skinColors.black, earTypes.pointy, svg)
-}
+
 
 
 
 function drawAllTheCats() {
     let svg = document.getElementById('rootSvg');
     for (let eye of Object.keys(eyeColors)) {
-        for (let skin of Object.keys(skinColors)) {
+        for (let skin of Object.keys(furColors)) {
             let s2 = svg.cloneNode(true);
-            drawCat(eyeColors[eye], skinColors[skin], s2);
+            drawCat(eyeColors[eye], furColors[skin], s2);
             document.body.appendChild(s2)
         }
     }
