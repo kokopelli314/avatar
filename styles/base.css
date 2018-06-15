@@ -28,3 +28,41 @@ svg {
         transform: translate(-0px, 0px);
     }
 }
+
+
+/* Doggy stuff! */
+.pupil-dog {
+    animation: pupil-dog 6s ease-in-out infinite;
+}
+.pupil-reflection-dog {
+    animation: pupil-reflection-dog 6s ease-in-out infinite;
+}
+
+@keyframes pupil-dog {
+    15% {
+        transform: translate(0px, -3px);
+    }
+    25% {
+        transform: translate(-5px, -3px);
+    }
+    42% {
+        transform: translate(5px, -3px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+}
+@keyframes pupil-reflection-dog {
+    15% {
+        transform: translate(0px, -5px);
+    }
+    25% {
+        transform: translate(-5px, -5px);
+    }
+    42% {
+        transform: translate(5px, -5px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+}

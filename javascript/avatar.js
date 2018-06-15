@@ -15,15 +15,12 @@ furColors = {
 
 earTypes = {
     droopy: (svg, attributes) => {
-        addPath(svg, 'M60 30 c 5 20, -40 30, -40 70 s -50 -80, 40 -70', attributes);
-        addPath(svg, 'M140 30 c -5 20, +40 30, +40 70 s +50 -80, -40 -70', attributes);
+        addPath(svg, 'M60 38 c 5 20, -40 30, -40 70 s -50 -80, 40 -70', attributes);
+        addPath(svg, 'M140 38 c -5 20, +40 30, +40 70 s +50 -80, -40 -70', attributes);
     },
     pointy: (svg, attributes) => {
         let att = attributes.concat(['stroke', 'transparent'])
-        // addPath(svg, 'M22 85 c -5 -50, 10 -80, 15 -85 s 00 00, 30 25 S 30 40, 22 95', att);
         addPath(svg, 'M70 45 c -5 -10, -10 -15, -25 -35 s -10 15, -20 55 S 30 50, 70 45', att);
-        // addPath(svg, 'M178 90 c +5 -50, -10 -80, -15 -85 s 00 00, -30 20 S 170 40, 178 90', att);
-        // addPath(svg, 'M178 80 c +5 -50, -10 -80, -15 -77 s 00 00, -30 20 S 170 40, 178 80', attributes)
     }
 }
 
@@ -31,19 +28,7 @@ earTypes = {
 
 
 
-function drawAllTheCats() {
-    let svg = document.getElementById('rootSvg');
-    for (let eye of Object.keys(eyeColors)) {
-        for (let skin of Object.keys(furColors)) {
-            let s2 = svg.cloneNode(true);
-            drawCat(eyeColors[eye], furColors[skin], s2);
-            document.body.appendChild(s2)
-        }
-    }
-    svg.setAttribute('visibility', 'collapse');
-}
-
-function drawDog(eyeColor, skinColor, addEar, svgElement) {
+function drawDog(eyeColor, skinColor, svgElement) {
     let s = svgElement;
     let skin = [
         ['fill', skinColor],
@@ -61,19 +46,19 @@ function drawDog(eyeColor, skinColor, addEar, svgElement) {
         ['stroke-width', '1']
     ];
     let pupil = [
-        ['class', 'pupil'], ['fill', '#222'], ['stroke', 'none']
+        ['class', 'pupil-dog'], ['fill', '#222'], ['stroke', 'none']
     ];
     // left eye
     addPath(s, "M40 85 c 00 -20, 40 -30, 40 0", eye);
     addPath(s, "M40 85 c 00 +20, 40 +20, 40 0", eye);
     addCircle(s, [60, 80], 10, pupil);
-    addCircle(s, [60, 80], 2, [['class', 'pupil-reflection'], ['fill', 'white']]);
+    addCircle(s, [62, 77], 2, [['class', 'pupil-reflection-dog'], ['fill', 'white']]);
 
     // right eye
     addPath(s, "M120 85 c 00 -30, 40 -20, 40 0", eye);
     addPath(s, "M120 85 c 00 +20, 40 +20, 40 0", eye);
     addCircle(s, [140, 80], 10, pupil);
-    addCircle(s, [140, 80], 2, [['class', 'pupil-reflection'], ['fill', 'white']]);
+    addCircle(s, [142, 77], 2, [['class', 'pupil-reflection-dog'], ['fill', 'white']]);
 
 
     // mouth
@@ -85,11 +70,19 @@ function drawDog(eyeColor, skinColor, addEar, svgElement) {
         ['fill', skinColor],
         ['stroke-width', '1']
     ];
-    addEar(s, ear);
-
+    earTypes.droopy(s, ear);
 
     // nose
     addPolygon(s, [[85, 115], [115, 115], [100, 130]], [['fill', 'hsl(0, 36%, 51%)']]);
+
+    // whiskers
+    addCircle(s, [55, 122], 1, [['fill', 'hsla(0, 0%, 50%, 0.7)']]);
+    addCircle(s, [50, 127], 1, [['fill', 'hsla(0, 0%, 50%, 0.7)']]);
+    addCircle(s, [48, 120], 1, [['fill', 'hsla(0, 0%, 50%, 0.7)']]);
+
+    addCircle(s, [145, 122], 1, [['fill', 'hsla(0, 0%, 50%, 0.7)']]);
+    addCircle(s, [150, 127], 1, [['fill', 'hsla(0, 0%, 50%, 0.7)']]);
+    addCircle(s, [152, 120], 1, [['fill', 'hsla(0, 0%, 50%, 0.7)']]);
 };
 
 
